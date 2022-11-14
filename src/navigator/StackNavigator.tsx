@@ -5,17 +5,31 @@ import Calculadora from '../screens/Calculadora';
 import TareaScreen from '../screens/TareaScreen';
 import BoxObjectModelScreen from '../screens/BoxObjectModelScreen';
 import Home from '../screens/Home';
+import Alumnos from '../screens/Alumnos';
+import PersonaScreen from '../screens/PersonaScreen';
 
-const Stack = createStackNavigator();
+export type RootStackParams = {
+  Calculadora: undefined;
+  Home: undefined;
+  Persona: {id: number; profession: string; edad: number};
+  Contador: undefined;
+  Alumnos: undefined;
+};
+
+const Stack = createStackNavigator<RootStackParams>();
 
 const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
         // headerShown: false,
+        cardStyle: {
+          backgroundColor: '#fff',
+        },
         headerStyle: {
           elevation: 0,
           backgroundColor: '#06bcee',
+          shadowColor: 'transparent',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -34,15 +48,25 @@ const StackNavigator = () => {
         options={{title: 'Calculadora'}}
         component={Calculadora}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="Tarea"
         options={{title: 'Tarea'}}
         component={TareaScreen}
-      />
+      /> */}
       <Stack.Screen
         name="Contador"
         options={{title: 'Contador'}}
         component={ContadorScreen}
+      />
+      <Stack.Screen
+        name="Alumnos"
+        options={{title: 'Alumnos'}}
+        component={Alumnos}
+      />
+      <Stack.Screen
+        name="Persona"
+        options={{title: 'Persona'}}
+        component={PersonaScreen}
       />
     </Stack.Navigator>
   );

@@ -1,5 +1,5 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
@@ -21,6 +21,11 @@ const Home = ({navigation}: Props) => {
           style={styles.btn}
           onPress={() => navigation.navigate('Contador')}>
           <Text style={styles.textBtn}>Contador</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => navigation.navigate('Alumnos')}>
+          <Text style={styles.textBtn}>Alumnos</Text>
         </TouchableOpacity>
       </View>
     </View>
